@@ -1,0 +1,46 @@
+extends layout
+
+block content
+    .container
+        .row
+            form.col-lg-4(action="/search_options" method="get")
+                .form-group
+                    label Имя
+                    input.form-control(type="text" name="name" value="Дарья")
+                .form-group
+                    label Возраст
+                    .row
+                        .col-lg-6
+                            label От
+                            input.form-control(type="number" name="ageFrom" value="18")
+                        .col-lg-6
+                            label До
+                            input.form-control(type="number" name="ageTo" value="22")
+                .form-group
+                    label Город
+                    input.form-control(type="text" name="city" value="Краснодар")
+                .form-group
+                    label Цена
+                    .row
+                        .col-lg-6
+                            label От
+                            .input-group
+                                input.form-control(type="number" name="priceFrom" value="50")
+                                .input-group-addon ₽
+                        .col-lg-6
+                            label До
+                            .input-group
+                                input.form-control(type="number" name="priceTo" value="120")
+                                .input-group-addon ₽
+                input(type="submit" value="Поиск").btn.btn-primary
+            for girl in girls
+                .col-lg-3
+                    .thumbnail
+                        a(href="#{girl._id}")
+                        img(src="img/#{girl.img}", alt="")
+                        .caption
+                            a(href="girls/#{girl._id}") #{girl.name}
+                            p #{girl.age}  лет
+                            p #{girl.price} ₽ за час съемки
+                            p
+                                a.btn.btn-primary(href="#" role="button") Просмотр

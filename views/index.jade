@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	.container
+		h1 Все девушки
+		.row
+			for girl in girls
+				.col-lg-3
+					.thumbnail 
+						a(href="#{girl._id}")
+						img(src="img/#{girl.img}", alt="")
+						.caption
+							h3 #{girl.name}
+							p Lorem ipsum dolor sit amet.
+							p
+								a.btn.btn-primary(href="#" role="button") Просмотр

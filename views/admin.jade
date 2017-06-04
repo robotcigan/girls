@@ -1,0 +1,39 @@
+extends layout
+
+block content
+	.container
+		h1 Admin
+		.row
+			form.col-lg-4(action="/save_girl" method="post" enctype="multipart/form-data")
+				.form-group
+					label Имя
+					input.form-control(type="text" name="name" value="Дарья")
+				.form-group
+					label Возраст
+					input.form-control(type="number" name="age" value="22")
+				.form-group
+					label Город
+					input.form-control(type="text" name="city" value="Краснодар")
+				.form-group
+					label Цена
+					input.form-control(type="number" name="price" value="100")
+				.form-group
+					label Фото
+					input(type="file" name="img")
+				input(type="submit" value="Сохранить").btn.btn-success
+			.col-lg-8
+				h3 Всего девушек: #{girls.length}
+				for girl in girls
+					.col-lg-4
+						.thumbnail
+							a(href="girls/#{girl._id}")
+								img(src="img/#{girl.img}", alt="")
+							.caption
+								h3 #{girl.name}
+								p #{girl.age}
+								a(href="cities/#{girl.name}")
+									strong #{girl.city}
+								br
+								a.btn.btn-warning(href="#{girl._id}" role="button") Изменить
+								a.btn.btn-danger(href="/delete_girl/#{girl._id}" role="button") Удалить
+

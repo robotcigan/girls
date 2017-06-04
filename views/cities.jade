@@ -1,0 +1,7 @@
+extends layout
+
+block content
+	.container
+		for city in cities
+			a(href="/cities/#{city._id}") #{city.name}
+			br

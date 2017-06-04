@@ -1,0 +1,13 @@
+extends layout
+
+block content
+	.container
+		a.btn.btn-primary(href="/cities") &lArr; Города
+		h1 #{city.name}
+			.row
+				for girl in girls
+					.col-lg-3
+						.thumbnail
+							a(href="/girls/#{girl._id}")
+								img(src="/img/#{girl.img}")
+						a(href="/girls/#{girl._id}") #{girl.name}

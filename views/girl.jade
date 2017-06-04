@@ -1,0 +1,16 @@
+extends layout
+
+block content
+	.container
+		.col-lg-3
+			.thumbnail
+				a(href="girls/#{girl._id}")
+					img(src="/img/#{girl.img}", alt="")
+				.caption
+					a.btn.btn-primary(href="" role="button") Написать
+		.col-lg-9
+			h1 #{girl.name}
+			p #{girl.city}
+			p #{girl.age} лет
+
+
